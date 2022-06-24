@@ -50,7 +50,7 @@ app.use(passport.session());
 //Variables Globales
 
 // la url de acceso a la aplicacion en este caso el nombre del servidor donde esta alojado bebe
-app.locals.serverurl = "http://gdragon:3000";
+app.locals.serverurl = "https://tickets77.herokuapp.com/";
 //los mensajes
 app.use((req, res, next) => {
   app.locals.success = req.flash("success");
