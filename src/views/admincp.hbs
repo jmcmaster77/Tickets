@@ -1,0 +1,40 @@
+<div class="contatainer p-4">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/admincp/{{datos.id}}" method="POST">
+                        <div class="mb-2">
+                            <label for="">usuario: {{datos.usuario}}</label>
+                        </div>
+                        <div class="mb-2">
+                            <label for="">Indicar la nueva clave</label>
+                        </div>
+                        <div class="mb-2">
+                            <input type="password" value="" name="pass1" class="form-control" placeholder="">
+                        </div>
+                        <div class="mb-2">
+                            <label for="">Repita la clave</label>
+                        </div>
+                        <div class="mb-2">
+                            <input type="password" value="" name="pass2" class="form-control" placeholder="">
+                        </div>
+                        <div class="mb-2">
+                            <div class="d-grid  mx-auto p-1">
+                                <button class="btn btn-success">
+                                    cambiar
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div class="d-grid  mx-auto p-1">
+                        <button class="btn btn-secondary" onclick="window.location.href='/admin'">
+                            Retorno
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>

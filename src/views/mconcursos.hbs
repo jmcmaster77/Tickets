@@ -1,0 +1,74 @@
+<div class="container">
+    <div class="row justify-content-evenly">
+        <div class="col-4">
+            <button class="btn btn-secondary" onclick="window.location.href='/admin'">
+                <img src="/icons/arrow-left-circle.svg" alt="" width="20" height="20" title="arrow-left-circle"> Retorno
+            </button>
+        </div>
+
+    </div>
+</div>
+<div class="container">
+    <div class="row row-cols-auto">
+        {{#each datos}}
+        <div style="padding: 5px 5px 5px 5px;">
+            <div class="col">
+                <div style="padding: 5px 5px 5px 5px;">
+                    <div class="card text-center" style="width: 275px; height: 500x">
+                        <div class="card-header fw-bold">
+                            {{titulo}}
+                        </div>
+                        <div class="card-body">
+                            <div class="card-title">
+                                <p>Creado:{{creado}}</p>
+                            </div>
+                            <div style="top: 0;  left: 8px; height: 200px; width: 250px;">
+                                <label for="
+                                ">
+                                    <p class="card-text">Descripción: {{descripcion}}</p>
+                                </label>
+                            </div>
+
+                            <p>Cantidad de Números: {{cnum}}</p>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
+                                        <a href="/concurso/{{idconcurso}}" class="button-venta">Vender Número</a>
+                                    </div>
+                                    <div class="col">
+                                        <a href="/concursom/{{idconcurso}}" class="button-venta-m">Venta Multiple de Números</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{else}}
+
+        <div class="col">
+
+            <div class="col-md-4 mx-auto">
+                <div class="card card-body text-center">
+                    <p> No hay registros </p>
+                    <a href=""></a>
+                </div>
+            </div>
+
+            {{/each}}
+        </div>
+
+    </div>
+</div>
+<div class="container">
+    <div class="row justify-content-evenly">
+        <div class="col-4">
+            <button class="btn btn-secondary" onclick="window.location.href='/admin'">
+                <img src="/icons/arrow-left-circle.svg" alt="" width="20" height="20" title="arrow-left-circle"> Retorno
+            </button>
+        </div>
+
+    </div>
+</div>

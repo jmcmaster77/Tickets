@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    {{!-- BOOSTRAPT 5 --}}
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Animate CSS-->
+    <link rel="stylesheet" href="/css/animate.min.css" />
+    {{!-- Data tables CDN--}}
+    <link rel="stylesheet" type="text/css" href="/css/dataTables.bootstrap5.min.css">
+    {{!-- CDN de Toastr Incluyendo toastr para las notificaciones bebe--}}
+    <link rel="stylesheet" href="/css/toastr.min.css" />
+    {{!-- jquery --}}
+    <script src="/js/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    {{!-- ICON --}}
+    <link rel="stylesheet" href="/css/bootstrap-icons.css" />
+    {{!-- Fuentes de Google --}}
+    {{!-- en el style.css coloque las dos fuentes que estoy utilizando localmente --}}
+    
+    {{!-- Fontawesome --}}
+    <script src="/js/026f84d8e1.js" crossorigin="anonymous"></script>
+    {{!-- Script de Bootstrapt --}}
+    <script src="/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+
+    {{!-- los scrpt de toastr --}}
+    <script src="/js/toastr.min.js"></script>
+    {{!-- Estilos --}}
+    <link rel="stylesheet" href="/css/styles.css">
+
+    <title>Tickets</title>
+    <link rel="icon" type="image/x-icon" href="/img/ico.svg">
+</head>
+
+<body>
+    {{{ toastr }}}
+    {{> navegacion }}
+    {{> mensajes }}
+    {{{ body }}}
+
+    <!-- Script Datatables -->
+    <script type="text/javascript" language="javascript"
+        src="/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" language="javascript"
+        src="/js/dataTables.bootstrap5.min.js"></script>
+    <script src="/js/dataTables.responsive.min.js"></script>
+    <script src="/js/datetime.js"></script>
+
+    {{!-- Botones en datatables JS  --}}
+    <script src="/DataTables/Buttons-2.2.3/js/dataTables.buttons.min.js"></script>
+    <script src="/DataTables/JSZip-2.5.0/jszip.min.js"></script>
+    <script src="/DataTables/pdfmake-0.1.36/pdfmake.min.js"></script>
+    <script src="/DataTables/pdfmake-0.1.36/vfs_fonts.js"></script>
+    <script src="/DataTables/Buttons-2.2.3/js/buttons.html5.min.js"></script>
+    <script src="/DataTables/Buttons-2.2.3/js/buttons.print.min.js"></script>
+    
+
+
+</body>
+
+
+</html>

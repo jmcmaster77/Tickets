@@ -1,0 +1,71 @@
+<div style="position: absolute; top: px; left: 3px; width: 388px; height: 550px;">
+    <div class="container text-center" style="background-color: #ffffff ; ">
+        <div class="row">
+            <div class="col">
+                <b class="fs-5 fw-bold">Concurso {{datos.titulo}}</b>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <b class="fs-1">RECIBO</b>
+            </div>
+        </div>
+    </div>
+    <div class="container text-center" style="background-color: #ffcc00 ;">
+        <label for="">Numeros comprados</label>
+        <div class="row row-cols-4 row-cols-sm-2 row-cols-md-4">
+            {{#each numeros}}
+            <div class="col">
+                {{this}}
+            </div>
+            {{/each}}
+        </div>
+    </div>
+    <div class="container" style="background-color: #ffffff;">
+        <div>
+            
+        </div>
+        <div class="row ">
+            <div class="col ">
+                <p class="text-start fw-light lh-1">Fecha del Ticket:</p>
+                <p class="text-start fw-light lh-1">Serie m:</p>
+                <p class="text-start fw-light lh-1">Serie:</p>
+                <p class="text-start fw-light lh-1">Id Concurso:</p>
+                <p class="text-start fw-light lh-1">Nombre:</p>
+                <p class="text-start fw-light lh-1">Identificación:</p>
+                <p class="text-start fw-light lh-1">Teléfono:</p>
+                <p class="text-start fw-light lh-1">Email:</p>
+                <p class="text-start fw-light lh-1">Pago:</p>
+                <p class="text-start fw-light lh-1">Método de pago:</p>
+                <p class="text-start fw-light lh-1">Referencia:</p>
+                <p class="text-start fw-light lh-1">Total:</p>
+                <p class="text-start fw-light lh-1">Promotor:</p>
+            </div>
+            <div class="col ">
+                <p class="text-end fw-light lh-1">{{datos.creado}}</p>
+                <p class="text-end fw-light lh-1">{{datos.idventam}}</p>
+                <p class="text-end fw-light lh-1">{{datos.id}}</p>
+                <p class="text-end fw-light lh-1">{{datos.idconcurso}}</p>
+                <p class="text-end fw-light lh-1">{{datos.nombre}} {{datos.apellido}}</p>
+                <p class="text-end fw-light lh-1">{{datos.cedula}}</p>
+                <p class="text-end fw-light lh-1">{{datos.numcontacto}}</p>
+                <p class="text-end fw-light lh-1">{{datos.email}}</p>
+                <p class="text-end fw-light lh-1">{{datos.monto}}</p>
+                <p class="text-end fw-light lh-1">{{datos.mpago}}</p>
+                <p class="text-end fw-light lh-1">{{datos.ref}}</p>
+                <p class="text-end fw-light lh-1">{{datos.grantotal}}</p>
+                <p class="text-end fw-light lh-1">{{datos.id_promotor}}</p>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col">
+                <div class="p-2">
+                    <a href="/concursom/{{datos.idconcurso}}" class="btn btn-secondary m-3">
+                        Rertorno
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

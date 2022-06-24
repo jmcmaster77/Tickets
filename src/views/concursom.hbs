@@ -1,0 +1,247 @@
+<main class="home">
+    <p class="text-center fst-italic fs-1 fw-bold">Concurso: {{concurso.titulo}}</p>
+    <p class="text-center fst-italic fs-7 fw-bold">Venta de seleccion multiple</p>
+    <p class="text-center fst-italic">Selecciona hasta 10 números y click en continuar</p>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col align-self-start">
+                <a href="/mconcursos" type="button" class="btn button-menu-vm-1">
+                    <img src="/icons/arrow-left-circle.svg" alt="" width="16" height="16" title="arrow-left-circle">
+                    Retorno
+                </a>
+            </div>
+            <div class="col align-self-center">
+                <a href="#" type="button" class="btn button-menu-vm-2" onclick="validacion()">
+                    <img src="/icons/cart-plus.svg" alt="" width="16" height="16" title="cart-plus">
+                    Continuar
+                </a>
+            </div>
+            <div class="col align-self-end">
+                <div style="display:flex; justify-content:flex-end; width:100%; padding:0;">
+                    <a href="/concursom/actualizar/{{idconcurso}}" type="button" class="btn button-menu-vm-2"
+                        style="position: relative; right: 0;">
+                        <img src="/icons/arrow-clockwise.svg" alt="" width="16" height="16" title="arrow-clockwise">
+                        Actualizar
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p class="text-center fst-italic">Numeros disponibles.</p>
+    <div class="container" style="padding-top: 5px;">
+        <div class="row">
+            <div class="col">
+                <form method="" action="">
+                    <fieldset>
+                        {{#each registros}}
+                        {{#if estado}}
+                        <label class="lnumerov">
+                            <input type="checkbox" id="cbxn{{numero}}" Value="{{numero}}" checked disabled>
+                            {{numero}}
+                        </label>
+                        {{else}}
+                        <label class="lnumero">
+                            <input type="checkbox" name="cbxnd" id="cbxn{{numero}}" Value="{{numero}}"
+                                onclick="return ValidateSelection();">
+                            {{numero}}
+                        </label>
+
+
+                        {{/if}}
+                        {{else}}
+                        <label for="">No hay Numeros</label>
+                        {{/each}}
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="padding-top: 5px;">
+        <div class="row">
+            <div class="col">
+                <a href="/mconcursos" type="button" class="btn button-menu-vm-1">
+                    <img src="/icons/arrow-left-circle.svg" alt="" width="16" height="16" title="arrow-left-circle">
+                    Retorno
+                </a>
+            </div>
+            <div class="col">
+                <a href="#" type="button" id="mmg" class="btn button-menu-vm-2" onclick="validacion()">
+                    <img src="/icons/cart-plus.svg" alt="" width="16" height="16" title="cart-plus">
+                    Continuar
+                </a>
+            </div>
+            <div class="col">
+                <div style="display:flex; justify-content:flex-end; width:100%; padding:0;">
+                    <a href="/concursom/actualizar/{{idconcurso}}" type="button" class="btn button-menu-vm-2"
+                        style="position: relative; right: 0;">
+                        <img src="/icons/arrow-clockwise.svg" alt="" width="16" height="16" title="arrow-clockwise">
+                        Actualizar
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalventa" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Venta del número: </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    {{!-- incluyendo el form --}}
+                    <form action="/rventasm" method="POST" class="form-modal" name="form_rventa" id="form_rventas">
+                        <input type="hidden" class="inputidconcurso" id="inputidconcurso" name="inputidconcurso">
+                        <input type="hidden" class="inputnv" id="inputnv" name="inputnv">
+                        <div class="form-group p-1">
+                            <input type="text" id="nombre" name="nombre" class="form-control"
+                                placeholder="Escribe el nombre"
+                                oninput="this.value = this.value.replace(/[^a-zA-Z\u00f1\u00d1\u00E0-\u00FC]/g, '').replace(/(\..*)\./g, '$1');">
+                        </div>
+                        <div class="form-group p-1">
+                            <input type="text" id="apellido" name="apellido" class="form-control"
+                                placeholder="Escribe el Apellido"
+                                oninput="this.value = this.value.replace(/[^a-zA-Z\u00f1\u00d1\u00E0-\u00FC]/g, '').replace(/(\..*)\./g, '$1');">
+                        </div>
+                        <div class="form-group p-1">
+                            <input type="tel" id="ci" name="ci" class="form-control"
+                                placeholder="Escribe Cedula de Identidad" minlength="7" maxlength="8" min="1000000"
+                                {{!-- pattern="[0-9]{8}" --}}
+                                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                        </div>
+                        <div class="form-group p-1">
+                            <input type="tel" id="ncontacto" name="ncontacto" class="form-control"
+                                placeholder="Escribe el Número de contato" pattern="[0-9]{4}[0-9]{3}[0-9]{2}[0-9]{2}"
+                                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                        </div>
+                        <div class="form-group p-1">
+                            <input type="email" id="correo" name="correo" class="form-control"
+                                aria-describedby="emailHelp" placeholder="Escribe el correo electronico">
+                        </div>
+                        <div class="form-group p-1">
+                            <select class="form-select form-control" aria-label="Default select example" name="mpago"
+                                id="mpago">
+                                <option selected>Seleccionar método de pago</option>
+                                <option value="efectivo_Bsd">Efectivo Bsd</option>
+                                <option value="efectivo_Div">Efectivo Div</option>
+                                <option value="pago_movil">Pago movil</option>
+                                <option value="transferencia">Transferencia</option>
+                            </select>
+                        </div>
+                        <div class="form-group p-1">
+                            <input type="number" id="ref" name="ref" class="form-control"
+                                placeholder="Escribe la referencia (N/A si el pago es en efectivo)"
+                                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                        </div>
+                        <div class="input-group p-1">
+                            <span class="input-group-text">Bs ó $</span>
+                            <input type="number" name="monto" id="monto" class="form-control" aria-label="Dollar amount"
+                                min="1" max="999" step="00.01" value="1.00"
+                                placeholder="escribir el monto del pago 0.00">
+                        </div>
+                        <div class="input-group p-1">
+                            <div class="d-grid gap-2 col-6 mx-auto">
+                                <button type="submit" class="btn btn-primary">Vender</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+<footer class="fconcurso" style="padding-top: 5px;">
+    <p class="text-center fst-italic fs-4">¡Suerte!</p>
+</footer>
+<script>
+
+
+    function ValidateSelection() {
+
+        var checkboxes = document.getElementsByName("cbxnd");
+        var numberOfCheckedItems = 0;
+
+        for (var i = 0; i < checkboxes.length; i++) {
+            if (checkboxes[i].checked)
+                numberOfCheckedItems++;
+        }
+        if (numberOfCheckedItems > 10) {
+            alert("No se pueden seleccionar mas de 10 numeros");
+            return false;
+        }
+    }
+
+    function validacion() {
+
+        var checkboxes = document.getElementsByName("cbxnd");
+        var numberOfCheckedItems = 0;
+
+        for (var i = 0; i < checkboxes.length; i++) {
+            if (checkboxes[i].checked)
+                numberOfCheckedItems++;
+        }
+        if (numberOfCheckedItems >= 2) {
+            $("#modalventa").modal("show");
+        } else {
+            alert("Seleccionar por lo menos 2 numeros");
+            return false;
+        }
+
+
+        
+
+    }
+
+    const modalVenta = document.getElementById('modalventa')
+    modalVenta.addEventListener('show.bs.modal', event => {
+        // Button that triggered the modal
+        // const button = event.relatedTarget
+        // Extract info from data-bs-* attributes
+        // const numero = button.getAttribute('data-bs-numero')
+        // If necessary, you could initiate an AJAX request here
+        // and then do the updating in a callback.
+        //
+        // Update the modal's content.
+
+        const modalTitle = modalVenta.querySelector('.modal-title')
+        const modalBodyInputidconcurso = modalVenta.querySelector(".modal-body input[name='inputidconcurso']")
+        const modalBodyInputnv = modalVenta.querySelector(".modal-body input[name='inputnv']")
+
+        function rescata() {
+            var checkboxes = document.getElementsByName("cbxnd");
+            valores = new Array()
+
+            var numberOfCheckedItems = 0;
+            for (var i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].checked)
+                    numberOfCheckedItems++;
+            }
+
+            for (var i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].checked)
+                    valores.push(checkboxes[i].value);
+
+            }
+
+            var rescata = valores;
+
+            return rescata
+        }
+
+        numerosav = rescata()
+
+        modalTitle.textContent = `Venta los Numeros: ${numerosav}`
+        modalBodyInputidconcurso.value = "{{idconcurso}}"
+        modalBodyInputnv.value = numerosav
+
+    })
+</script>

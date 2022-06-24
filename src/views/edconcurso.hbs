@@ -1,0 +1,40 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col mx-auto">
+            <div class="card text-center">
+                <div class="card-header text-center">
+                    <b class="fs-3">Registrar Concurso</b>
+                </div>
+                <form action="/edconcurso/{{datos.idconcurso}}" class="form" method="POST" name="form_edcon" id="form_edcon">
+                    <div class="form-group p-2">
+                        <input type="text" value="{{datos.titulo}}" name="titulo" placeholder="Titulo del concurso" class="form-control "
+                            autocomplete="nope"
+                            oninput="this.value = this.value.replace(/[^a-zA-Z\u00f1\u00d1\u00E0-\u00FC]/g, '').replace(/(\..*)\./g, '$1');"
+                            autofocus>
+                    </div>
+                    <div class="form-group p-2">
+                        <textarea name="descripcion"  rows="2" id="descripcion" class="form-control"
+                            placeholder="Descripción">{{datos.descripcion}}</textarea>
+                    </div>
+
+                    <div class="mb-2">
+                        <div class="col-10 mx-auto">
+                            <button class="btn btn-success" style="margin: 2px 2px;padding: 7px 20px; width:180px;height:45px;
+                                        background-color: #2720b8;border: none;">
+                                <img src="/icons/plus-circle.svg" alt="" width="20" height="20" title="plus-circle">
+                                Modificar
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-2">
+                        <a href="/cconcursoad" class="btn btn-secondary" style="margin: 2px 2px;padding: 7px 20px; width:180px;height:45px;
+                                        background-color: #2720b8;border: none;">
+                            <img src="/icons/arrow-left-circle.svg" alt="" width="20" height="20" title="arrow-left-circle">
+                            Retorno
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

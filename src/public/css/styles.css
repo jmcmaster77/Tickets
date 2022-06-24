@@ -1,0 +1,432 @@
+@font-face {
+  font-family: "Roboto Flex";
+  src: url('../fonts/RobotoFlex-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: "Smooch";
+  src: url('../fonts/Smooch-Regular.ttf') format('truetype');
+}
+
+body {
+  background: #bdc3c7; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #43c6ac,
+    #160ebe
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #43c6ac,
+    #160ebe
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  font-family: "Roboto Flex", sans-serif;
+  /* overflow: hidden; */ /* mosca con esta vaia bloquea el scroll */
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+.dt-buttons {
+  position: absolute !important;
+}
+
+.table thead {
+  background-color: #2b28d8;
+  color: aliceblue;
+}
+
+.table tbody {
+  background-color: #d1e0ff;
+  
+}
+
+.body-listauser {
+  background: #699dc2;
+}
+
+.lista-usuarios {
+  background: #e8f0f5;
+  background-repeat: no-repeat;
+}
+
+.eslogan {
+  font-family: "Smooch", sans-serif;
+  font-size: xx-large;
+  
+  
+}
+
+
+
+.card-header {
+  background: #bdc3c7; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #2c3e50,
+    #bdc3c7,
+    #2c3e50
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #2c3e50,
+    #bdc3c7,
+    #2c3e50
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.card{
+  background: #bdc3c7; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #2c3e50,
+    #bdc3c7,
+    #2c3e50
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #64696d,
+    #bdc3c7,
+    #64696d
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.form {
+  background: #bdc3c7; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #2c3e50,
+    #bdc3c7,
+    #2c3e50
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #64696d,
+    #bdc3c7,
+    #64696d
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+/* cuando cambies el color del fondo al form control cambia al form-select para que se vea uniforme y no se tengo un contraste */
+
+.modal-content {
+  background: #bdc3c7; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #2c3e50,
+    #bdc3c7,
+    #2c3e50
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #64696d,
+    #bdc3c7,
+    #64696d
+  );
+}
+
+
+.button-menu-1 {
+  background-color: #6d6d8b;
+  color: #040404;
+  line-height:40px;
+  text-align: center;
+  text-decoration: none;
+  display:inline-block;
+  width:150px;
+  height:40px;
+  font-size: 15px;
+  margin: 2px 2px;
+  cursor: pointer;
+  border-radius:5px;
+  transition-duration: 0.4s;
+}
+
+.button-menu-1:hover {
+  background-color: #48972d;
+  color: white;
+}
+
+.button-menu-2 {
+  background-color: #6d6d8b;
+  color: #040404;
+  line-height:40px;
+  text-align: center;
+  text-decoration: none;
+  display:inline-block;
+  width:150px;
+  height:40px;
+  font-size: 15px;
+  margin: 2px 2px;
+  cursor: pointer;
+  border-radius:5px;
+  transition-duration: 0.4s;
+}
+
+.button-menu-2:hover {
+  background-color: #0048ff;
+  color: white;
+}
+
+.button-menu-3 {
+  background-color: #6d6d8b;
+  color: #040404;
+  line-height:40px;
+  text-align: center;
+  text-decoration: none;
+  display:inline-block;
+  width:150px;
+  height:40px;
+  font-size: 15px;
+  margin: 2px 2px;
+  cursor: pointer;
+  border-radius:5px;
+  transition-duration: 0.4s;
+}
+
+.button-menu-3:hover {
+  background-color: #f3ff49;
+  color: #040404;
+}
+
+.button-menu-vm-1 {
+  background-color: #6d6d8b;
+  color: #040404;
+  line-height:20px;
+  text-align: center;
+  text-decoration: none;
+  display:inline-block;
+  width:98px;
+  height:30px;
+  font-size: 15px;
+  margin: 2px 2px;
+  cursor: pointer;
+  border-radius:5px;
+  transition-duration: 0.4s;
+}
+
+.button-menu-vm-1:hover {
+  background-color: #0048ff;
+  color: white;
+}
+
+.button-menu-vm-2 {
+  background-color: #6d6d8b;
+  color: #040404;
+  line-height:20px;
+  text-align: center;
+  text-decoration: none;
+  display:inline-block;
+  width:112px;
+  height:30px;
+  font-size: 15px;
+  margin: 2px 2px;
+  cursor: pointer;
+  border-radius:5px;
+  position: relative;
+  right: 0;
+  transition-duration: 0.4s;
+}
+
+.button-menu-vm-2:hover {
+  background-color: #0048ff;
+  color: white;
+}
+
+.button-venta {
+  background-color: #6d6d8b;
+  color: white;
+  line-height:40px;
+  text-align: center;
+  text-decoration: none;
+  display:inline-block;
+  width:100px;
+  height:40px;
+  font-size: 12px;
+  margin: 2px 2px;
+  cursor: pointer;
+  border-radius:5px;
+  transition-duration: 0.4s;
+}
+
+.button-venta:hover {
+  background-color: #0048ff;
+  color: white;
+}
+
+.button-venta-m {
+  background-color: #6d6d8b;
+  color: white;
+  vertical-align:auto;
+  text-align: center;
+  text-decoration: none;
+  display:inline-block;
+  width:100px;
+  height:40px;
+  font-size: 12px;
+  margin: 2px 2px;
+  cursor: pointer;
+  border-radius:5px;
+  transition-duration: 0.4s;
+}
+
+.button-venta-m:hover {
+  background-color: #0048ff;
+  color: white;
+}
+
+
+.button-number-modal-0 {
+  background-color: #626263;
+  border:#2c3e50;
+  color: white;
+  line-height:30px;
+  text-align: center;
+  text-decoration: none;
+  display:inline-block;
+  width:60px;
+  height:30px;
+  font-size: 12px;
+  margin: 2px 2px;
+  cursor: pointer;
+  border-radius:5px;
+  transition-duration: 0.4s;
+  border: 2px solid #4CAF50;
+  
+}
+
+.button-number-modal-0:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.button-number-modal-1 {
+  background-color: #1e49dd;
+  border:#2c3e50;
+  color: white;
+  line-height:30px;
+  text-align: center;
+  text-decoration: none;
+  display:inline-block;
+  width:60px;
+  height:30px;
+  font-size: 12px;
+  margin: 2px 2px;
+  cursor: pointer;
+  border-radius:5px;
+  transition-duration: 0.4s;
+  border: 2px solid #4CAF50;
+
+}
+
+.button-number-modal-1:hover {
+  background-color: #2c3e50;
+  color: #bdc3c7;
+}
+
+.lnumero {
+  background-color: #626263;
+  border:#2c3e50;
+  color: white;
+  line-height:30px;
+  text-align: center;
+  text-decoration: none;
+  display:inline-block;
+  width:60px;
+  height:30px;
+  font-size: 12px;
+  margin: 2px 2px;
+  cursor: pointer;
+  border-radius:5px;
+  transition-duration: 0.4s;
+  border: 2px solid #4CAF50;
+  
+}
+
+.lnumero:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.lnumerov {
+  background-color: #1e49dd;
+  border:#2c3e50;
+  color: white;
+  line-height:30px;
+  text-align: center;
+  text-decoration: none;
+  display:inline-block;
+  width:60px;
+  height:30px;
+  font-size: 12px;
+  margin: 2px 2px;
+  cursor: pointer;
+  border-radius:5px;
+  transition-duration: 0.4s;
+  border: 2px solid #4CAF50;
+
+}
+
+.lnumerov:hover {
+  background-color: #2c3e50;
+  color: #bdc3c7;
+}
+
+.form-control {
+  background: #e9edf0;
+}
+
+.form-select {
+  background: #e9edf0;
+}
+
+
+
+.masthead {
+  color: rgb(8, 7, 7);
+  min-height: 30rem;
+  width: 100%;
+  height: 100%;
+  padding-top: 4rem;
+  background: #e9e5f0; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #43c6ac,
+    #160ebe
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #43c6ac,
+    #160ebe
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  /* background-position: center center; */
+  /* background-repeat: no-repeat; */
+  /* background-size: cover; */
+}
+
+.masthead h1 {
+  font-size: 4rem;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 925px) {
+  .masthead h1 {
+    font-size: 5.5rem;
+  }
+}
+
+.fprincipal {
+  background-position: center bottom;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 2px;
+  background-size: 100% 85%;
+  color: rgb(6, 6, 6);
+}
+
+.lineahorizontal {
+  border-right: #7c827c;
+}

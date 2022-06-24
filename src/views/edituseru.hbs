@@ -1,0 +1,71 @@
+<div class="contatainer p-4">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card text-center">
+                <div class="card-header text-center">
+                    <b>Menú edición Usuario</b>
+                </div>
+                <div class="card-body">
+                    <form action="/listauser/editar/{{datos.id}}" method="POST">
+                        <div class="mb-2">
+                            <input type="text" value="{{datos.nombre}}" class="form-control" name="nombre"
+                                placeholder="Nombre"
+                                oninput="this.value = this.value.replace(/[^a-zA-Z\u00f1\u00d1\u00E0-\u00FC.]).replace(/(\..*)\./g, '$1');"
+                                autofocus>
+                        </div>
+                        <div class="mb-2">
+                            <input type="text" value="{{datos.apellido}}" class="form-control" name="apellido"
+                                placeholder="Apellido"
+                                oninput="this.value = this.value.replace(/[^a-zA-Z\u00f1\u00d1\u00E0-\u00FC.]).replace(/(\..*)\./g, '$1');"
+                                autofocus>
+                        </div>
+                        <div class="mb-2">
+                            <input type="text" value="{{datos.usuario}}" name="usuario" class="form-control"
+                                placeholder="usuario"
+                                oninput="this.value = this.value.replace(/[^a-zA-Z\u00f1\u00d1\u00E0-\u00FC.]).replace(/(\..*)\./g, '$1');">
+                        </div>
+                        <div class="mb-2">
+                            <div class="d-grid  mx-auto p-1">
+                                <label for="">{{datos.tipo}}</label>
+                            </div>
+                        </div>
+                        <div class="form-group p-2">
+                            <select class="form-select" name="tipo" id="tipo">
+                                <option value="Promotor">Promotor</option>
+                                <option value="Usuario">Usuario</option>
+                                <option value="Administrador">Adminitrador</option>
+                            </select>
+                        </div>
+                    <div class="form-group p-2">
+                        <label for=""> Para promotor se debe seleccionar el sub tipo </label>
+                        <select class="form-select" aria-label="Default select example" name="subtipo" id="subtipo">
+                            <option value="Exclusivo">Exclusivo</option>
+                            <option value="Freelancer">Freelancer</option>
+                            <option value="Online">Online</option>
+                        </select>
+                    </div>
+                        <div class="mb-2">
+                            <div class="d-grid  mx-auto p-1">
+                                <button class="btn btn-success">
+                                    Guardar
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="d-grid  mx-auto p-1">
+                        <button class="btn btn-warning"
+                            onclick="window.location.href='/listauser/resetpass/{{datos.id}}'">
+                            Reset clave
+                        </button>
+                    </div>
+                    <div class="d-grid  mx-auto p-1">
+                        <button class="btn btn-secondary" onclick="window.location.href='/listauseru'">
+                            Retorno
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+<main class="lista-usuarios">
+    <body class="body-listauser">
+            <div class="d-grid  mx-auto p-1">
+        <button class="btn btn-secondary" onclick="window.location.href='/admin'">
+            Retorno
+        </button>
+    </div>
+    <div>
+        <table class="table table-dark table-striped">
+            <thead >
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Usuario</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Sub Tipo</th>
+                    <th scope="col">Accion</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each registros}}
+                <tr>
+                    <th scope="row">{{id}}</th>
+                    <td>{{usuario}}</td>
+                    <td>{{nombre}}</td>
+                    <td>{{apellido}}</td>
+                    <td>{{tipo}}</td>
+                    <td>{{subtipo}}</td>
+                    <td>
+                        <a href="/listauser/borrar/{{id}}" class="btn btn-danger">Borrar</a>
+                    </td>
+                    <td>
+                        <a href="/listauser/editar/{{id}}" class="btn btn-secondary">Editar</a>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+    </body>
+
+
+</main>

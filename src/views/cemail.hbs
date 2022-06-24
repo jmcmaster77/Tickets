@@ -1,0 +1,71 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col mx-auto">
+            <div class="card text-center">
+                <div class="card-header text-center">
+                    <b class="fs-3">Menú edición correo</b>
+                </div>
+                <form action="/cemail/{{datos.id}}" class="form" method="POST">
+                    <div class="form-group p-2"><label for=""> Datos del correo </label></div>
+                    <div class="form-group p-2">
+
+                        <input type="text" id="smtp" name="smtp" placeholder="indicar SMTP" value="{{datos.smtp}}"
+                            class="form-control ">
+                    </div>
+                    <div class="form-group p-2">
+                        <input type="text" id="port" name="port" placeholder="Indicar puerto" class="form-control "
+                            value="{{datos.port}}">
+                    </div>
+                    <div class="form-group p-2">
+                        <input type="text" id="secured" name="secured" placeholder="Indicar puerto" class="form-control"
+                            value="{{datos.secure}}">
+                    </div>
+                    <div><label for="">Seleccionar si el TLS esta activo</label></div>
+                    <div class="form-group p-2">
+                        <select class="form-select" aria-label="Default select example" name="secure" id="secure">
+                            <option value="false">false</option>
+                            <option value="true">true</option>
+                        </select>
+                    </div>
+                    <div class="form-group p-2">
+                        <input type="email" id="user" name="user" placeholder="Indicar correo"
+                            aria-describedby="emailHelp" class="form-control" value="{{datos.user}}">
+                    </div>
+                    <div class="mb-2">
+                        <label for="">Indicar la nueva clave</label>
+                    </div>
+                    <div class="form-group p-2">
+                        <input type="password" id="pass" name="pass" placeholder="Indicar clave" class="form-control">
+                    </div>
+                    <div class="form-group p-2">
+                        <div class="col-10 mx-auto">
+                            <button class="btn btn-success">
+                                <img src="/icons/plus-circle.svg" alt="" width="20" height="20" title="plus-circle">
+                                Guardar
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <form action="/send-email-test/{{datos.id}}" class="form"  method="post">
+                    <div class="form-group p-2">
+                        <input type="email" id="to" name="to" placeholder="Indicar correo a enviar prueba"
+                            aria-describedby="emailHelp" class="form-control">
+                    </div>
+
+                    <div class="form-group p-2">
+                        <button class="btn btn-secondary">
+                            <img src="/icons/send.svg" alt="" width="20" height="20" title="send">
+                            Correo de Prueba
+                        </button>
+                    </div>
+                    <div class="p-2">
+                        <a href="/admin" class="btn btn-secondary">
+                            <img src="/icons/arrow-left-circle.svg" alt="" width="20" height="20" title="arrow-left-circle">
+                            Retorno
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

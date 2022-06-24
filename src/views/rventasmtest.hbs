@@ -1,0 +1,136 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <div class="container">
+                <div class="card text-center">
+                    <div class="card-header text-center">
+                        <div><b>Promotor: {{user.usuario}}<b></div>
+
+                        <div><b>VENTA MULTIPLE<b></b></div>
+                    </div>
+
+
+                    <form action="/rventasm" method="POST" class="form" name="form_rventam" id="form_rventasm"
+                        onsubmit="return valida(this)">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <input type="number" id="cantidad" name="cantidad" class="form-control"
+                                        placeholder="" maxlength="2" min="2" max="20" value="2"
+                                        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group p-1">
+                            <input type="text" id="nombre" name="nombre" class="form-control"
+                                placeholder="Escribe el Nombre" value="Tnombre"
+                                oninput="this.value = this.value.replace(/[^a-zA-Z\u00f1\u00d1\u00E0-\u00FC]/g, '').replace(/(\..*)\./g, '$1');">
+                        </div>
+                        <div class="form-group p-1">
+                            <input type="text" id="apellido" name="apellido" class="form-control"
+                                placeholder="Escribe el Apellido" value="Tapellido"
+                                oninput="this.value = this.value.replace(/[^a-zA-Z\u00f1\u00d1\u00E0-\u00FC]/g, '').replace(/(\..*)\./g, '$1');">
+                        </div>
+                        <div class="form-group p-1">
+                            <input type="tel" id="ci" name="ci" class="form-control"
+                                placeholder="Escribe Cedula de Identidad" minlength="7" maxlength="8" min="1000000"
+                                {{!-- pattern="[0-9]{8}" --}} value="17777777"
+                                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                        </div>
+                        <div class="form-group p-1">
+                            <input type="tel" id="ncontacto" name="ncontacto" class="form-control" value="04147777777"
+                                placeholder="Escribe el Numero de contato" pattern="[0-9]{4}[0-9]{3}[0-9]{2}[0-9]{2}"
+                                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                        </div>
+                        <div class="form-group p-1">
+                            <input type="email" id="correo" name="correo" class="form-control" value="test@test.com"
+                                aria-describedby="emailHelp" placeholder="Escribe el Correo Electronico">
+                        </div>
+
+                        <div class="form-group p-1">
+                            <select class="form-select form-control" aria-label="Default select example" name="mpago"
+                                id="mpago">
+                                <option selected>Seleccionar metodo de pago <option>
+                                <option value="efectivo_Bsd">Efectivo Bsd</option>
+                                <option value="efectivo_Div">Efectivo Div</option>
+                                <option value="pago_movil">Pago movil</option>
+                                <option value="transferencia">Transferencia</option>
+                            </select>
+                        </div>
+                        <div class="form-group p-1">
+                            <input type="number" id="ref" name="ref" class="form-control"
+                                placeholder="Escribe la referencia (N/A si el pago es en efectivo)"
+                                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                        </div>
+                        <div class="form-group p-1">
+                            <div class="input-group">
+                                <span class="input-group-text">Bs ó $</span>
+                                <input type="number" name="monto" id="monto" class="form-control" aria-label="Amount"
+                                    placeholder="escribir el monto del pago" type="range" min="1" max="1000" value="7"
+                                    oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                                <span class="input-group-text">.00</span>
+                            </div>
+                        </div>
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col">
+                                    <input type="text" id="ciudad" name="ciudad" class="form-control"
+                                        placeholder="indicar la ciudad" value="Caracas"
+                                        oninput="this.value = this.value.replace(/[^a-zA-Z\u00f1\u00d1\u00E0-\u00FC.]).replace(/(\..*)\./g, '$1');">
+                                </div>
+                                <div class="col ">
+                                    <input type="text" id="pais" name="pais" class="form-control"
+                                        placeholder="Escribe el pais" value="Venezuela"
+                                        oninput="this.value = this.value.replace(/[^a-zA-Z\u00f1\u00d1\u00E0-\u00FC.]).replace(/(\..*)\./g, '$1');">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group p-1">
+                            <textarea name="comentario" rows="2" id="comentario" name="comentario" class="form-control"
+                                placeholder="Escribe un comentario"> TEst Suerte</textarea> 
+
+                        </div>
+                        <div class="row ">
+                            <div class="col-1 mx-auto">
+                                <button class="btn btn-success">
+                                    Registar
+                                </button>
+                            </div>
+                            <div class="col-2 mx-auto">
+                                <a href="/profile" class="btn btn-secondary">
+                                    Rertorno
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function valida(f) {
+        var ok = true;
+        var msg = "Debes escribir contenido en los campos:\n";
+        if (f.elements[0].value == "") {
+            msg += "- ci\n";
+            ok = false;
+        }
+
+        if (f.elements["marca2"].value == "") {
+            msg += "- Marca 2\n";
+            ok = false;
+        }
+
+        if (f.marca3.value == "") {
+            msg += "- Marca 3\n";
+            ok = false;
+        }
+
+        if (ok == false)
+            alert(msg);
+        return ok;
+    }
+</script>
