@@ -23,20 +23,25 @@
                                 <p>Creado:{{creado}}</p>
                             </div>
                             <div style="top: 0;  left: 8px; height: 200px; width: 250px;">
-                                <label for="
-                                ">
+                                <label>
                                     <p class="card-text">Descripción: {{descripcion}}</p>
                                 </label>
                             </div>
-
+                            <div>
+                                <label >Loteria: {{loteria}}</label>
+                            </div>
+                            <div>
+                                <label >Fecha:{{fecha}} </label> <label > Hora:{{hora}}</label>
+                            </div>
                             <p>Cantidad de Números: {{cnum}}</p>
                             <div class="container">
+                                <label > Procesar Venta </label>
                                 <div class="row">
                                     <div class="col">
-                                        <a href="/concurso/{{idconcurso}}" class="button-venta">Vender Número</a>
+                                    <a href="/concurso/{{idconcurso}}" class="button-venta">Número</a>
                                     </div>
                                     <div class="col">
-                                        <a href="/concursom/{{idconcurso}}" class="button-venta-m">Venta Multiple de Números</a>
+                                        <a href="/concursom/{{idconcurso}}" class="button-venta-m">Números</a>
                                     </div>
                                 </div>
                             </div>

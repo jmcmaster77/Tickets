@@ -8,7 +8,7 @@ const cola = require("../databases");
 // }
 
 module.exports = {
-  async emailsending(datos) {
+  async emailsending(datos, datosc) {
     // se obtiene los datos de la cuenta de
     const idc = 1;
     const consulta = await cola.query("SELECT * FROM correo WHERE id=?", [idc]);
@@ -480,6 +480,16 @@ module.exports = {
                                         <b class="fs-1">RECIBO</b>
                                     </td>
                                     </tr>
+                                    <tr>
+                                    <td text-align="center">
+                                        <b class="fs-1">Fecha del concurso ${datosc.fecha} - ${datosc.hora}</b>
+                                    </td>
+                                    </tr>
+                                    <tr>
+                                    <td text-align="center">
+                                        <b class="fs-1">Loteria: ${datosc.loteria}</b>
+                                    </td>
+                                    </tr>                                                                        
 
                                 </tr>
                                 </table>
@@ -677,7 +687,7 @@ module.exports = {
 
     //   email de venta multiple 
 
-  async emailsendingm(datos, numeros) {
+  async emailsendingm(datos, datosc, numeros) {
     // se obtiene los datos de la cuenta de
     const idc = 1;
     const consulta = await cola.query("SELECT * FROM correo WHERE id=?", [idc]);
@@ -1151,6 +1161,16 @@ module.exports = {
                                 </td>
                                 </tr>
                                 <tr>
+                                <tr>
+                                <td text-align="center">
+                                    <b class="fs-1">Fecha del concurso ${datosc.fecha} - ${datosc.hora}</b>
+                                </td>
+                                </tr>
+                                <tr>
+                                <td text-align="center">
+                                    <b class="fs-1">Loteria: ${datosc.loteria}</b>
+                                </td>
+                                </tr>                                  
                             </tr>
                             </table>
                             </td>

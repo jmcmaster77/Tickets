@@ -6,43 +6,91 @@
                     <b class="fs-3">Registrar Concurso</b>
                 </div>
                 <form action="/rconcurso" class="form" method="POST" name="form_rcon" id="form_rcon">
-                    <div class="form-group p-2">
-                        <input type="text" name="titulo" placeholder="Titulo del concurso" class="form-control "
-                            autocomplete="nope"
-                            oninput="this.value = this.value.replace(/[^a-zA-Z\u00f1\u00d1\u00E0-\u00FC]/g, '').replace(/(\..*)\./g, '$1');"
-                            autofocus>
-                    </div>
-                    <div class="form-group p-2">
-                        <textarea name="descripcion" rows="2" id="descripcion" class="form-control"
-                            placeholder="Descripción"></textarea>
-                    </div>
-                    <div class="form-group p-2">
-                        <label for=""> Indicar la cantidad de numeros que tendra el concurso</label>
-                        <select class="form-select" aria-label="Default select example" name="cnum" id="cnum">
-                            <option value="99">99</option>
-                            <option value="999">999</option>
-                        </select>
-                    </div>
-
-                    <div><label for=""><i class="bi bi-exclamation-diamond"></i> Precaución</label></div>
-                    <div class="form-group p-2" >
-                        <p>La cantidad de números seleccionados serán generados en la Base de datos al crear el concurso y no podrán ser editados.
-                        </p>
-                    </div>
-
-                    <div class="mb-2">
-                        <div class="col-10 mx-auto">
-                            <button class="btn btn-success">
-                                <img src="/icons/arrow-left-circle.svg" alt="" width="20" height="20" title="arrow-left-circle">
-                                Registar
-                            </button>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group p-2">
+                                    <input type="text" name="titulo" placeholder="Titulo del concurso"
+                                        class="form-control" autocomplete="nope"
+                                        oninput="this.value = this.value.replace(/[^a-zA-Z\u00f1\u00d1\u00E0-\u00FC]/g, '').replace(/(\..*)\./g, '$1');"
+                                        autofocus>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="p-2">
-                        <a href="/admin" class="btn btn-secondary">
-                            <img src="/icons/arrow-left-short.svg" alt="" width="20" height="20" title="arrow-left-short">
-                            Retorno
-                        </a>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group p-2">
+                                    <textarea name="descripcion" rows="2" id="descripcion" class="form-control"
+                                        placeholder="Descripción"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group p-2">
+                                    <input type="text" name="loteria" placeholder="Escribir Loteria a utilizar"
+                                        class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group p-2">
+                                    <input type="date" name="fecha" placeholder="Fecha" class="form-control"
+                                        min="2022-06-24" max="2050-12-31" value="2022-06-24" required>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group p-2">
+                                    <input type="time" name="hora" placeholder="hora" class="form-control" min="08:00"
+                                        max="22:00" value="20:00" required>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group p-2">
+                                    <select class="form-select" aria-label="Default select example" name="cnum"
+                                        id="cnum">
+                                        <option value="99">100</option>
+                                        <option value="999">1000</option>
+                                    </select>
+                                    <label for=""> Indicar la cantidad de numeros que tendra el concurso</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div><label for=""><img src="/icons/exclamation-diamond.svg" alt="" width="20" height="20"
+                                    title="exclamation-diamond"> Precaución</label></div>
+                        <div class="form-group p-2">
+                            <p>La cantidad de números seleccionados serán generados en la Base de datos al crear el
+                                concurso
+                                y no podrán ser editados.
+                            </p>
+                        </div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="mb-2">
+                                        <button class="btn btn-success">
+                                            <img src="/icons/arrow-left-circle.svg" alt="" width="20" height="20"
+                                                title="arrow-left-circle">
+                                            Registar
+                                        </button>
+
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="mb-2">
+                                        <a href="/admin" class="btn btn-secondary">
+                                            <img src="/icons/arrow-left-short.svg" alt="" width="20" height="20"
+                                                title="arrow-left-short">
+                                            Retorno
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
                     </div>
                 </form>
             </div>

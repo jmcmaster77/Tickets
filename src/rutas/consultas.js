@@ -123,10 +123,15 @@ consultas.get("/recibo/:id", async (req, res) => {
   const drecibo = await cola.query("SELECT * FROM ventas WHERE id = ?", [id]);
   // res.render("recibo", { datos: drecibo[0] });
   const datos = drecibo[0];
-
+  const registro = await cola.query(
+    "SELECT * FROM concursos WHERE idconcurso = ?",
+    [datos.idconcurso]
+  );
+  const datosc = registro[0];
+  
   // dando formato al timestamp que mariadb me lo transaforma en la consulta pero en un formato XXXXXL
   datos.creado = date.format(datos.creado, "DD-MM-YYYY HH:mm");
-  res.render("recibo", { datos });
+  res.render("recibo", { datos, datosc });
 });
 
 consultas.get("/recibotest/:id", async (req, res) => {
@@ -155,7 +160,12 @@ consultas.get("/recibop/:id", async (req, res) => {
     const ventas = await cola.query("SELECT * FROM ventas WHERE idventam = ?", [
       datos.idventam,
     ]);
-    console.log("ventas",ventas)
+
+    const registro = await cola.query(
+      "SELECT * FROM concursos WHERE idconcurso = ?",
+      [ventas[0].idconcurso]
+    );
+    const datosc = registro[0];
 
     var codventa = new Array();
     var numeros = new Array();
@@ -189,14 +199,17 @@ consultas.get("/recibop/:id", async (req, res) => {
       idventam: datos.idventam,
     };
 
-    res.render("recibomp", { datos, numeros });
+    res.render("recibomp", { datos, datosc, numeros });
   } else {
+    const registro = await cola.query(
+      "SELECT * FROM concursos WHERE idconcurso = ?",
+      [datos.idconcurso]
+    );
+    const datosc = registro[0];
     // dando formato al timestamp que mariadb me lo transaforma en la consulta pero en un formato XXXXXL
     datos.creado = date.format(datos.creado, "DD-MM-YYYY HH:mm");
-    res.render("recibop", { datos });
+    res.render("recibop", { datos, datosc });
   }
-
-
 });
 
 consultas.get("/recibou/:id", async (req, res) => {
@@ -213,7 +226,11 @@ consultas.get("/recibou/:id", async (req, res) => {
     const ventas = await cola.query("SELECT * FROM ventas WHERE idventam = ?", [
       datos.idventam,
     ]);
-    console.log("ventas",ventas)
+    const registro = await cola.query(
+      "SELECT * FROM concursos WHERE idconcurso = ?",
+      [ventas[0].idconcurso]
+    );
+    const datosc = registro[0];
 
     var codventa = new Array();
     var numeros = new Array();
@@ -247,14 +264,17 @@ consultas.get("/recibou/:id", async (req, res) => {
       idventam: datos.idventam,
     };
 
-    res.render("recibomu", { datos, numeros });
+    res.render("recibomu", { datos, datosc, numeros });
   } else {
-  // dando formato al timestamp que mariadb me lo transaforma en la consulta pero en un formato XXXXXL
-  datos.creado = date.format(datos.creado, "DD-MM-YYYY HH:mm");
-  res.render("recibou", { datos });
+    // dando formato al timestamp que mariadb me lo transaforma en la consulta pero en un formato XXXXXL
+    const registro = await cola.query(
+      "SELECT * FROM concursos WHERE idconcurso = ?",
+      [datos.idconcurso]
+    );
+    const datosc = registro[0];
+    datos.creado = date.format(datos.creado, "DD-MM-YYYY HH:mm");
+    res.render("recibou", { datos, datosc });
   }
-
-
 });
 
 consultas.get("/reciboad/:id", async (req, res) => {
@@ -270,7 +290,11 @@ consultas.get("/reciboad/:id", async (req, res) => {
     const ventas = await cola.query("SELECT * FROM ventas WHERE idventam = ?", [
       datos.idventam,
     ]);
-    console.log("ventas",ventas)
+    const registro = await cola.query(
+      "SELECT * FROM concursos WHERE idconcurso = ?",
+      [ventas[0].idconcurso]
+    );
+    const datosc = registro[0];
 
     var codventa = new Array();
     var numeros = new Array();
@@ -304,13 +328,17 @@ consultas.get("/reciboad/:id", async (req, res) => {
       idventam: datos.idventam,
     };
 
-    res.render("recibomad", { datos, numeros });
+    res.render("recibomad", { datos, datosc, numeros });
   } else {
-  // dando formato al timestamp que mariadb me lo transaforma en la consulta pero en un formato XXXXXL
-  datos.creado = date.format(datos.creado, "DD-MM-YYYY HH:mm");
-  res.render("reciboad", { datos });
+    const registro = await cola.query(
+      "SELECT * FROM concursos WHERE idconcurso = ?",
+      [datos.idconcurso]
+    );
+    const datosc = registro[0];
+    // dando formato al timestamp que mariadb me lo transaforma en la consulta pero en un formato XXXXXL
+    datos.creado = date.format(datos.creado, "DD-MM-YYYY HH:mm");
+    res.render("reciboad", { datos, datosc });
   }
-
 });
 
 // Reenvio de correo al cliente papu
@@ -321,11 +349,15 @@ consultas.get("/reenvioe/:id", async (req, res) => {
   const drecibo = await cola.query("SELECT * FROM ventas WHERE id = ?", [id]);
   // res.render("recibo", { datos: drecibo[0] });
   const datos = drecibo[0];
-
+  const registro = await cola.query(
+    "SELECT * FROM concursos WHERE idconcurso = ?",
+    [datos.idconcurso]
+  );
+  const datosc = registro[0];
   // dando formato al timestamp que mariadb me lo transaforma en la consulta pero en un formato XXXXXL
   datos.creado = date.format(datos.creado, "DD-MM-YYYY HH:mm");
 
-  emailsending(datos);
+  emailsending(datos, datosc);
 
   req.toastr.info(
     "Correo del recibo reenviado al cliente",

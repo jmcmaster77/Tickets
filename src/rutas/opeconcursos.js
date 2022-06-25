@@ -13,7 +13,8 @@ rutasc.get("/rconcurso", isLoggedIn, async (req, res) => {
 });
 
 rutasc.post("/rconcurso", isLoggedIn, async (req, res) => {
-  let { titulo, descripcion, cnum } = req.body;
+  let { titulo, descripcion, cnum, loteria, fecha, hora } = req.body;
+  
   var go = true;
   if (titulo == "") {
     var go = false;
@@ -39,12 +40,27 @@ rutasc.post("/rconcurso", isLoggedIn, async (req, res) => {
       })
     );
     res.redirect("/rconcurso");
+  } else if (loteria == "") {
+    var go = false;
+    req.toastr.error(
+      "Se require que indique la loteria",
+      (title = "Error"),
+      (options = {
+        closeButton: true,
+        progressBar: true,
+        timeOut: "1250",
+      })
+    );
+    res.redirect("/rconcurso");
   }
 
   const concurso = {
     titulo,
     descripcion,
     cnum,
+    loteria,
+    fecha,
+    hora,
     registradox: req.app.locals.user.id,
   };
 
@@ -158,8 +174,8 @@ rutasc.get("/edconcurso/:id", async (req, res) => {
 rutasc.post("/edconcurso/:id", async (req, res) => {
   var go = true;
   const { id } = req.params;
-  let { titulo, descripcion } = req.body;
-
+  let { titulo, descripcion, loteria, fecha, hora } = req.body;
+   
   if (titulo == "") {
     var go = false;
     req.toastr.error(
@@ -184,11 +200,26 @@ rutasc.post("/edconcurso/:id", async (req, res) => {
       })
     );
     res.redirect("/edconcurso/" + id);
+  } else if (loteria == "") {
+    var go = false;
+    req.toastr.error(
+      "Se require indica el nombre de la loteria",
+      (title = "Error"),
+      (options = {
+        closeButton: true,
+        progressBar: true,
+        timeOut: "1250",
+      })
+    );
+    res.redirect("/edconcurso/" + id);
   }
 
   const datos = {
     titulo,
     descripcion,
+    loteria,
+    fecha,
+    hora,
     editadox: req.app.locals.user.id,
   };
 

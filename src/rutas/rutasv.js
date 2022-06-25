@@ -197,16 +197,17 @@ rutasv.post("/recibo/:id", async (req, res) => {
   const drecibo = await cola.query("SELECT * FROM ventas WHERE id = ?", [id]);
   // res.render("recibo", { datos: drecibo[0] });
   const datos = drecibo[0];
-
+  const registro = await cola.query("SELECT * FROM concursos WHERE idconcurso = ?", [datos.idconcurso])
+  const datosc = registro[0]
   // dando formato al timestamp que mariadb me lo transaforma en la consulta pero en un formato XXXXXL
   datos.creado = date.format(datos.creado, "DD-MM-YYYY HH:mm");
 
   // antes de cargar el recibo se procede a enviar el correo y aprovechar los datos del cliente para incluirlos en el email
 
-  emailsending(datos);
+  emailsending(datos, datosc);
 
   // y por ultimo se muestra el recibo
-  res.render("recibo", { datos });
+  res.render("recibo", { datos, datosc });
 });
 
 //  ventas multiples
@@ -420,6 +421,9 @@ rutasv.post("/recibom/:id", async (req, res) => {
   ]);
   const ventam = await cola.query("SELECT * FROM ventasm WHERE id = ?", [id]);
 
+  const registro = await cola.query("SELECT * FROM concursos WHERE idconcurso = ?", [ventas[0].idconcurso])
+  const datosc = registro[0]
+
   var codventa = new Array();
   var numeros = new Array();
   var grantotal = 0;
@@ -453,9 +457,9 @@ rutasv.post("/recibom/:id", async (req, res) => {
     idventam: id,
   };
 
-  emailsendingm(datos, numeros);
+  emailsendingm(datos, datosc, numeros);
 
-  res.render("recibom", { datos, numeros });
+  res.render("recibom", { datos, datosc,  numeros });
 });
 
 module.exports = rutasv;

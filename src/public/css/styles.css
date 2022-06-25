@@ -234,13 +234,13 @@ body {
 }
 
 .button-venta {
-  background-color: #6d6d8b;
+  background-color: #29ac36;
   color: white;
   line-height:40px;
   text-align: center;
   text-decoration: none;
   display:inline-block;
-  width:100px;
+  width:80px;
   height:40px;
   font-size: 12px;
   margin: 2px 2px;
@@ -250,18 +250,18 @@ body {
 }
 
 .button-venta:hover {
-  background-color: #0048ff;
+  background-color: #21892b;
   color: white;
 }
 
 .button-venta-m {
-  background-color: #6d6d8b;
+  background-color: #2356fb;
   color: white;
-  vertical-align:auto;
+  line-height:40px;
   text-align: center;
   text-decoration: none;
   display:inline-block;
-  width:100px;
+  width:80px;
   height:40px;
   font-size: 12px;
   margin: 2px 2px;
